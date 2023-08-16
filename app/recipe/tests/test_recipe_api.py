@@ -411,7 +411,7 @@ class PrivateRecipeApiTests(TestCase):
         r3 = create_recipe(user=self.user, title='Red Lentil Daal')
 
         params = {'ingredients': f'{in1.id}, {in2.id}'}
-        res= self.client.get(RECIPES_URL, params)
+        res = self.client.get(RECIPES_URL, params)
 
         s1 = RecipeSerializer(r1)
         s2 = RecipeSerializer(r2)
@@ -419,6 +419,7 @@ class PrivateRecipeApiTests(TestCase):
         self.assertIn(s1.data, res.data)
         self.assertIn(s2.data, res.data)
         self.assertNotIn(s3.data, res.data)
+
 
 class ImageUploadTests(TestCase):
     """Tests for the image upload API."""
